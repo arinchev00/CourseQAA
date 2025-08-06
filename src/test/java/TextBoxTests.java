@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -46,5 +47,15 @@ public class TextBoxTests {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("[id=submit]").click();
+        $(".table-responsive").shouldHave(text("Илья Аринчев"));
+        $(".table-responsive").$(byText("Student Email")).closest("tr").find("td:nth-child(2)").shouldHave(text(userEmail));
+        $(".table-responsive").$(byText("Gender")).closest("tr").find("td:nth-child(2)").shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).closest("tr").find("td:nth-child(2)").shouldHave(text(userNumber));
+        $(".table-responsive").$(byText("Date of Birth")).closest("tr").find("td:nth-child(2)").shouldHave(text("10 August,2025"));
+        $(".table-responsive").$(byText("Subjects")).closest("tr").find("td:nth-child(2)").shouldHave(text(subjects));
+        $(".table-responsive").$(byText("Hobbies")).closest("tr").find("td:nth-child(2)").shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).closest("tr").find("td:nth-child(2)").shouldHave(text("Скрин.png"));
+        $(".table-responsive").$(byText("Address")).closest("tr").find("td:nth-child(2)").shouldHave(text("Адрес"));
+        $(".table-responsive").$(byText("State and City")).closest("tr").find("td:nth-child(2)").shouldHave(text("NCR Delhi"));
     }
 }

@@ -5,6 +5,7 @@ package ru.arinchev;
 public class Liquid {
     int temp;
     static String type = "Лед";
+    String name;
 
     // конструктор, вызывается клавишами alt + insert
     public Liquid(int temp) {
